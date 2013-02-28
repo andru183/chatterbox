@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class chatterbox 
 {
 	//Server ip address to connect to
-	private static final String IPADDRESS = "192.168.0.12";
+	private static final String IPADDRESS = "10.52.243.41";
 	//Socket to connect through
 	private static final int SOCKET = 9999;
 	//Loop conidition
@@ -28,23 +28,28 @@ public class chatterbox
 
 	public static void main(String[] args) 
 	{
+		//Create a scanner
+		Scanner input = null;
+		
+		//read the user input
+		input = new Scanner(System.in);
+		System.out.println(".");
+		//store the user input
+		String holder = input.next();
+		
 		/*
 		 * For now have a loop to keep getting user input
-		 */
-		while(canRun)
+		 */		
+		while(holder != null)
 		{
-			//Create a scanner
-			Scanner input = null;
-			//read the user input
-			input = new Scanner(System.in);
-			//store the user input
-			String holder = input.next();
 			//call send message and pass in $holder
 			sendMessage(holder);
-			//close the stream
-			input.close();
+			holder = input.next();
+			
 		}
-
+		//close the stream
+		input.close();
+		System.out.println(".");
 	}
 
 	/**
